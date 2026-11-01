@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10233f">
+<title>T05-P01 | The Internet and the World Wide Web | IGCSE 0984</title>
+<style>
+:root{--navy:#10233f;--navy2:#173f65;--blue:#1976b9;--cyan:#54d5df;--gold:#f2c65d;--ink:#17283d;--muted:#5d6d7e;--paper:#f3f6fa;--line:#d8e1eb;--white:#fff;--green:#16845b;--red:#b33d49;--purple:#7650a8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.62 "Segoe UI",Arial,sans-serif}
+button,input,select{font:inherit}button{border:0;border-radius:9px;padding:10px 16px;background:var(--blue);color:#fff;font-weight:750;cursor:pointer}button:hover{filter:brightness(1.06)}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#e7eff6;color:var(--navy)}.goldbtn{background:#d9a11e;color:#17283d}
+header{background:linear-gradient(115deg,#0b1b31,#123c62 58%,#07546a);color:#fff;position:relative;overflow:hidden}
+.hero{max-width:1160px;margin:auto;padding:24px 22px 32px;display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;min-height:290px}
+.school{font-size:1rem;font-weight:900;letter-spacing:1.5px}.motto{font-size:.78rem;color:#9beaf0;letter-spacing:2.2px;font-weight:800;margin-top:3px}
+.teacher{margin-top:20px;border-left:3px solid var(--gold);padding-left:12px}.teacher strong{display:block;font-size:1.45rem;letter-spacing:.5px}.teacher span{color:#d7e7f4;font-size:.9rem}
+.lab{font-size:.84rem;color:#a9dce9;font-weight:800;letter-spacing:1.2px;margin-top:12px;text-transform:uppercase}
+h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;margin:12px 0 9px;max-width:680px}
+.hero p{margin:0;color:#d9e7f2;max-width:650px}.heroart{width:100%;max-width:440px;justify-self:end;filter:drop-shadow(0 15px 25px #0004)}
+.hero-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.pill{border:1px solid #ffffff55;border-radius:99px;padding:4px 11px;font-size:.78rem;color:#effaff}
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:9px max(14px,calc((100% - 1120px)/2));box-shadow:0 4px 12px #10233f0a}
+nav a{white-space:nowrap;text-decoration:none;color:var(--navy);font-size:.85rem;font-weight:750;padding:7px 10px;border-radius:8px}nav a:hover{background:#e9f3f9}
+main{max-width:1120px;margin:24px auto;padding:0 18px}
+section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:23px;margin:19px 0;box-shadow:0 5px 18px #10233f08}
+h2{color:var(--navy);font-size:1.55rem;line-height:1.25;margin:0 0 12px}h3{color:#174d77;margin:18px 0 8px}h4{margin:8px 0;color:var(--navy)}
+.kicker{font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;color:#087a91;font-weight:900}.tag{display:inline-block;background:#e8f5f8;color:#116679;border-radius:6px;padding:3px 9px;font-size:.76rem;font-weight:850}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{background:#fbfdff;border:1px solid var(--line);border-radius:12px;padding:15px}
+.objectives{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.objective{background:#f3f8fc;border-left:4px solid var(--cyan);padding:12px;border-radius:8px}
+.callout{background:#fff7df;border-left:4px solid var(--gold);padding:13px 15px;border-radius:8px;margin:13px 0}.good{background:#eaf7f0;border-left:4px solid var(--green);padding:13px 15px;border-radius:8px;margin:13px 0}.warning{background:#fff0f0;border-left:4px solid var(--red);padding:13px 15px;border-radius:8px;margin:13px 0}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.94rem}th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}th{background:#edf4f9;color:var(--navy)}
+code,.mono{font-family:Consolas,monospace;background:#edf2f7;padding:2px 5px;border-radius:4px}
+.urlbar{background:#eef3f8;border:1px solid #cbd7e3;border-radius:10px;padding:11px 13px;font-family:Consolas,monospace;overflow-wrap:anywhere}
+.part{display:inline-block;padding:3px 7px;border-radius:5px;margin:2px;font-weight:800}.protocol{background:#d8efff;color:#064c78}.domain{background:#dcf5e5;color:#12623f}.path{background:#fff0c9;color:#765200}
+.diagram{background:#f5f9fc;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}.flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}.node{background:#e4f1f8;border:1px solid #b7d4e5;padding:10px 12px;border-radius:9px;font-weight:750;color:#174d77;min-width:120px}.arrow{font-size:1.4rem;color:#668198;font-weight:900}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tabs button{background:#e7eff6;color:var(--navy)}.tabs button.active{background:var(--blue);color:#fff}
+.output{background:#edf6fb;border-radius:10px;padding:13px;margin-top:12px;min-height:55px}
+.gamebox{border:2px dashed #9bc4d5;border-radius:14px;padding:16px;background:#f5fbfd;scroll-margin-top:76px}
+.progress{height:9px;background:#e6edf3;border-radius:99px;overflow:hidden}.progress>div{height:100%;background:var(--cyan);width:0;transition:width .2s}
+.question{border:1px solid var(--line);border-radius:11px;padding:14px;margin:12px 0;break-inside:avoid}.question p{font-weight:750;margin:0 0 8px}.option{display:flex;gap:9px;align-items:flex-start;font-weight:400;margin:7px 0}.option input{margin-top:5px}
+.feedback{font-weight:750;margin-top:8px}.correct{color:var(--green)}.incorrect{color:var(--red)}.small{font-size:.88rem;color:var(--muted)}
+.scorepanel{background:#f0f7fb;border:1px solid #cbdfea;border-radius:12px;padding:16px;margin-top:14px}
+#nameGate{position:fixed;inset:0;background:#09182bea;z-index:30;display:grid;place-items:center;padding:18px}
+.gatebox{background:#fff;max-width:490px;width:100%;padding:27px;border-radius:18px;box-shadow:0 20px 70px #0005}
+.gatebox h2{margin-top:5px}.gatebrand{font-size:.8rem;letter-spacing:1px;font-weight:900;color:#11647b}
+input[type=text]{width:100%;padding:11px;border:1px solid #aebdca;border-radius:8px;margin:4px 0 10px}
+#lesson{display:none}.hidden{display:none!important}
+footer{max-width:1120px;margin:auto;padding:22px 18px 35px;color:var(--muted);text-align:center;font-size:.86rem}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:22px}.heroart{max-width:270px;justify-self:center;grid-row:1}.hero-copy{grid-row:2}.grid3{grid-template-columns:1fr}.grid2,.objectives{grid-template-columns:1fr}}
+@media print{
+ body{background:#fff;font-size:10.5pt;color:#111}
+ header,nav,#nameGate,footer,.no-print,.screen-only{display:none!important}
+ #lesson{display:block!important}main{max-width:none;margin:0;padding:0}
+ body.print-practice #lesson>main>section:not(#practice){display:none!important}
+ body.print-practice #practice{display:block!important;border:0;box-shadow:none;margin:0;padding:0}
+ body.print-practice #practice .no-print{display:none!important}
+ body.print-practice #practice #assessmentArea{display:block!important}
+ body.print-practice #practice .question{border:1px solid #aaa}
+ body.print-practice #practice .option input{display:none}
+ body.print-practice #practice .answer-key{display:none!important}
+ body.print-practice #practice .scorepanel{display:block!important}
+}
+</style>
+</head>
+<body>
+<div id="nameGate">
+ <div class="gatebox">
+  <div class="gatebrand">MODERN ENGLISH SCHOOL CAIRO</div>
+  <div class="small">CARE · CHALLENGE · INSPIRE</div>
+  <h2>Welcome to Topic 5 – Lesson 1</h2>
+  <p>Enter your full name to begin. Your name will be included in your formal practice assessment report.</p>
+  <label for="studentName"><b>Student full name</b></label>
+  <input id="studentName" type="text" autocomplete="name" placeholder="Enter your full name">
+  <div id="gateError" class="feedback incorrect" aria-live="polite"></div>
+  <button onclick="startLesson()">Enter lesson</button>
+  <p class="small">This lesson is designed to work offline. No account or internet connection is required for the built-in activities.</p>
+ </div>
+</div>
+<div id="lesson">
+<header>
+ <div class="hero">
+  <div class="hero-copy">
+   <div class="school">MODERN ENGLISH SCHOOL CAIRO</div>
+   <div class="motto">CARE · CHALLENGE · INSPIRE</div>
+   <div class="teacher"><strong>RAVI RAJU</strong><span>Computer Science Educator</span></div>
+   <div class="lab">Ravi Raju's Programming Lab · Computer Science Department</div>
+   <h1>The Internet and the World Wide Web</h1>
+   <p>Discover how the Web works: from an address typed into a browser to a page retrieved from a web server and displayed on your screen.</p>
+   <div class="hero-meta"><span class="pill">Cambridge IGCSE 0984</span><span class="pill">Topic 5 · Section 5.1</span><span class="pill">T05-P01</span></div>
+  </div>
+  <svg class="heroart" viewBox="0 0 480 310" role="img" aria-label="Illustration of a connected globe, computers and internet network">
+   <defs><radialGradient id="g" cx="40%" cy="35%"><stop offset="0" stop-color="#3cd6e2" stop-opacity=".9"/><stop offset="1" stop-color="#176ca5" stop-opacity=".25"/></radialGradient><linearGradient id="line" x1="0" x2="1"><stop stop-color="#5ce2eb"/><stop offset="1" stop-color="#f5cc67"/></linearGradient></defs>
+   <circle cx="240" cy="145" r="105" fill="url(#g)" stroke="#76e6ee" stroke-width="2"/>
+   <ellipse cx="240" cy="145" rx="48" ry="105" fill="none" stroke="#83dce8" stroke-width="2" opacity=".8"/>
+   <ellipse cx="240" cy="145" rx="100" ry="39" fill="none" stroke="#83dce8" stroke-width="2" opacity=".8"/>
+   <path d="M143 115 Q240 75 337 115 M143 176 Q240 215 337 176" fill="none" stroke="#83dce8" stroke-width="2" opacity=".65"/>
+   <g stroke="url(#line)" stroke-width="2" fill="none"><path d="M240 40 L95 75 L48 190 L140 260 L240 250 L360 245 L430 165 L380 65 Z"/><path d="M95 75 L240 145 L380 65 M48 190 L240 145 L430 165 M140 260 L240 145 L360 245"/></g>
+   <g fill="#f7d477" stroke="#fff" stroke-width="2"><circle cx="95" cy="75" r="8"/><circle cx="48" cy="190" r="8"/><circle cx="140" cy="260" r="8"/><circle cx="360" cy="245" r="8"/><circle cx="430" cy="165" r="8"/><circle cx="380" cy="65" r="8"/><circle cx="240" cy="40" r="8"/></g>
+   <g fill="#dffaff" stroke="#62dbe5" stroke-width="2"><rect x="8" y="115" width="65" height="44" rx="5"/><path d="M27 164h27l-4 9H31z"/><rect x="398" y="210" width="68" height="43" rx="5"/><path d="M418 257h28l-4 8h-20z"/></g>
+   <g fill="#102d4c" font-size="12" font-family="Arial" font-weight="bold"><text x="22" y="141">WEB</text><text x="414" y="236">DATA</text></g>
+   <circle cx="240" cy="145" r="12" fill="#f6d16d" stroke="#fff" stroke-width="3"/>
+  </svg>
+ </div>
+</header>
+<nav>
+ <a href="#overview">Objectives</a><a href="#recall">Recall</a><a href="#teach">Learn</a><a href="#explore">Explore</a><a href="#practice">Practice</a><a href="#outcome">Next activity</a>
+</nav>
+<main>
+<section id="overview">
+ <div class="kicker">Your learning journey · 50 minutes</div>
+ <h2>What you will learn</h2>
+ <p>This lesson covers all six learning objectives in Cambridge 0984 syllabus section 5.1: The Internet and the World Wide Web.</p>
+ <div class="objectives">
+  <div class="objective"><b>1. Internet and WWW</b><br>Understand the difference between the Internet and the World Wide Web.</div>
+  <div class="objective"><b>2. URL</b><br>Understand what a Uniform Resource Locator is and identify its components.</div>
+  <div class="objective"><b>3. HTTP and HTTPS</b><br>Describe their purpose and operation.</div>
+  <div class="objective"><b>4. Web browser</b><br>Explain its purpose and functions.</div>
+  <div class="objective"><b>5. Web-page retrieval</b><br>Describe how a page is located, retrieved and displayed when a URL is entered.</div>
+  <div class="objective"><b>6. Cookies</b><br>Explain cookies, including session and persistent cookies and their uses.</div>
+ </div>
+ <div class="callout"><b>Success criteria:</b> You can explain the difference between the Internet and the Web, interpret a URL, compare HTTP and HTTPS, describe browser functions, sequence the web-page retrieval process, and distinguish session from persistent cookies.</div>
+ <div class="small">Lesson timing: Recall 5 min · Teacher Session 10 min · Interactive Exploration 10 min · Formal Practice 15 min · Game or remedial practice 10 min.</div>
+</section>
+
+<section id="recall">
+ <span class="tag">Stage 1 · 5 minutes</span>
+ <h2>Recall – connect to what you already know</h2>
+ <p>Think about networks and data transmission from earlier topics. Answer these three quick questions.</p>
+ <div class="question"><p>1. What is a computer network?</p>
+  <label class="option"><input type="radio" name="r1" value="a"> A group of connected devices that can communicate and share resources</label>
+  <label class="option"><input type="radio" name="r1" value="b"> A single computer with no connections</label>
+  <label class="option"><input type="radio" name="r1" value="c"> A program used only to draw pictures</label>
+ </div>
+ <div class="question"><p>2. What is the main purpose of a communication protocol?</p>
+  <label class="option"><input type="radio" name="r2" value="a"> To provide agreed rules for communication</label>
+  <label class="option"><input type="radio" name="r2" value="b"> To increase monitor brightness</label>
+  <label class="option"><input type="radio" name="r2" value="c"> To store files permanently</label>
+ </div>
+ <div class="question"><p>3. What is data transmission?</p>
+  <label class="option"><input type="radio" name="r3" value="a"> The movement of data from one device to another</label>
+  <label class="option"><input type="radio" name="r3" value="b"> Deleting all files from a device</label>
+  <label class="option"><input type="radio" name="r3" value="c"> Printing a document</label>
+ </div>
+ <button class="secondary" onclick="checkRecall()">Check recall</button>
+ <span id="recallScore" class="feedback" aria-live="polite"></span>
+ <p class="small">Recall is a starter activity only. It does not contribute to the formal practice score.</p>
+</section>
+
+<section id="teach">
+ <span class="tag">Stage 2 · 10 minutes</span>
+ <h2>Teacher Session – the essential knowledge</h2>
+ <h3>1. The Internet and the World Wide Web</h3>
+ <div class="grid2">
+  <div class="card"><h4>The Internet</h4><p>The Internet is the worldwide infrastructure of interconnected networks and devices that communicate using agreed protocols.</p><p><b>Think:</b> the network infrastructure that carries data.</p></div>
+  <div class="card"><h4>The World Wide Web (WWW)</h4><p>The Web is the collection of websites and web pages that people access using the Internet.</p><p><b>Think:</b> one service that uses the Internet.</p></div>
+ </div>
+ <div class="good"><b>Cambridge distinction:</b> The Internet is the infrastructure. The World Wide Web is the collection of websites and web pages accessed using that infrastructure. They are related, but they are not the same thing.</div>
+
+ <h3>2. Uniform Resource Locator (URL)</h3>
+ <p>A <b>URL</b> is a text-based address for a web page or other web resource. It can contain the protocol, the domain name and the web page/file name.</p>
+ <div class="urlbar"><span class="part protocol">https://</span><span class="part domain">www.mescairo.com</span><span class="part path">/secondary/computing.html</span></div>
+ <table><thead><tr><th>Component</th><th>Example</th><th>Purpose</th></tr></thead><tbody>
+  <tr><td>Protocol</td><td><span class="mono">https://</span></td><td>Identifies the communication protocol used to access the resource.</td></tr>
+  <tr><td>Domain name</td><td><span class="mono">www.mescairo.com</span></td><td>Human-readable name identifying the website's Internet address.</td></tr>
+  <tr><td>Web page/file name (path)</td><td><span class="mono">/secondary/computing.html</span></td><td>Identifies the requested page or resource on the website.</td></tr>
+ </tbody></table>
+ <div class="callout"><b>Exam reminder:</b> A URL is the address of a resource; it is not the resource itself.</div>
+
+ <h3>3. HTTP and HTTPS</h3>
+ <p><b>HTTP</b> (Hypertext Transfer Protocol) is a set of rules that allows a browser and a web server to request and transfer web resources. The browser sends a request; the server sends a response.</p>
+ <p><b>HTTPS</b> (Hypertext Transfer Protocol Secure) is HTTP communication protected using TLS encryption. It helps protect data while it is travelling between the browser and web server.</p>
+ <div class="grid2">
+  <div class="card"><h4>HTTP</h4><ul><li>Supports request-and-response communication.</li><li>Does not provide the TLS encryption of HTTPS.</li><li>Data is more exposed if intercepted on an untrusted network.</li></ul></div>
+  <div class="card"><h4>HTTPS</h4><ul><li>Uses HTTP over a TLS-protected connection.</li><li>Encrypts data in transit.</li><li>Helps authenticate the server and protect data from unauthorised reading or alteration.</li></ul></div>
+ </div>
+ <div class="warning"><b>Do not confuse security with trust:</b> HTTPS helps secure the connection. It does not guarantee that the website itself is honest, accurate or free from harmful content.</div>
+
+ <h3>4. Web browsers – purpose and functions</h3>
+ <p>The main purpose of a web browser is to <b>render HTML (Hypertext Markup Language) and display web pages</b>. A browser also provides tools to help users access and manage web content.</p>
+ <table><thead><tr><th>Browser function</th><th>What it does</th></tr></thead><tbody>
+  <tr><td>Bookmarks / favourites</td><td>Saves links to pages so users can return to them quickly.</td></tr>
+  <tr><td>History</td><td>Records pages previously visited.</td></tr>
+  <tr><td>Multiple tabs</td><td>Allows several web pages to be open in one browser window.</td></tr>
+  <tr><td>Cookies</td><td>Stores small pieces of website-related data on the user's device.</td></tr>
+  <tr><td>Navigation tools</td><td>Includes controls such as Back, Forward, Refresh and Home.</td></tr>
+  <tr><td>Address bar</td><td>Allows the user to enter a URL and often displays the current URL.</td></tr>
+ </tbody></table>
+
+ <h3>5. How a web page is located, retrieved and displayed</h3>
+ <p>When a user enters a URL, several components work together:</p>
+ <ol>
+  <li><b>Browser:</b> reads the URL and begins the request.</li>
+  <li><b>DNS (Domain Name System):</b> looks up the domain name and returns the corresponding IP address.</li>
+  <li><b>IP address:</b> identifies the destination server/device on the network so data can be routed to it.</li>
+  <li><b>Web server:</b> receives the browser's request and sends the requested resource in a response.</li>
+  <li><b>HTML:</b> the browser receives HTML from the server, interprets it and renders the page for display.</li>
+ </ol>
+ <div class="diagram">
+  <div class="flow">
+   <div class="node">User enters URL<br><small>Browser</small></div><span class="arrow">→</span>
+   <div class="node">DNS lookup<br><small>Find IP address</small></div><span class="arrow">→</span>
+   <div class="node">Web server<br><small>Receive request</small></div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="flow">
+   <div class="node">Server sends response<br><small>Web-page data / HTML</small></div><span class="arrow">→</span>
+   <div class="node">Browser renders HTML<br><small>Displays page</small></div>
+  </div>
+ </div>
+ <div class="callout"><b>Be precise:</b> DNS translates a domain name into an IP address. The IP address is used to direct network communication to the server. The browser requests the page; the web server responds; the browser renders the HTML.</div>
+
+ <h3>6. Cookies – session and persistent</h3>
+ <p>A <b>cookie</b> is a small piece of data stored by a website in the user's browser. Cookies help a website remember information between requests or visits.</p>
+ <div class="grid2">
+  <div class="card"><h4>Session cookie</h4><p>Usually exists only for the current browsing session and is normally removed when the browser session ends.</p><p><b>Example:</b> remembering items in a shopping cart while the user moves between pages during one visit.</p></div>
+  <div class="card"><h4>Persistent cookie</h4><p>Has an expiry time and can remain stored after the browser is closed, until it expires or is deleted.</p><p><b>Example:</b> remembering a language preference for a later visit.</p></div>
+ </div>
+ <h4>Uses of cookies required by the syllabus</h4>
+ <ul><li>Saving personal details.</li><li>Tracking user preferences.</li><li>Holding items in an online shopping cart.</li><li>Storing login details or a login/session identifier so a user can remain signed in.</li></ul>
+ <div class="warning"><b>Privacy reminder:</b> Cookies can support useful functions, but they can also be used to track browsing behaviour. Websites should handle personal information securely; passwords should not be stored as plain text in cookies.</div>
+</section>
+
+<section id="explore">
+ <span class="tag">Stage 3 · 10 minutes</span>
+ <h2>Interactive Exploration – become a Web Investigator</h2>
+ <p>Use the three mini-labs to explore how a browser accesses a web page.</p>
+ <div class="tabs no-print">
+  <button id="tab1" class="active" onclick="showLab(1)">Lab 1 · URL Detective</button>
+  <button id="tab2" onclick="showLab(2)">Lab 2 · Page Retrieval</button>
+  <button id="tab3" onclick="showLab(3)">Lab 3 · Cookie Lab</button>
+ </div>
+ <div id="lab1" class="gamebox">
+  <h3>Lab 1 – URL Detective</h3>
+  <p>Study the URL and identify its components.</p>
+  <div class="urlbar">https://learn.example.org/igcse/topic5.html</div>
+  <label for="urlProtocol"><b>Which part is the protocol?</b></label>
+  <select id="urlProtocol"><option value="">Choose...</option><option>https://</option><option>learn.example.org</option><option>/igcse/topic5.html</option></select>
+  <label for="urlDomain"><b>Which part is the domain name?</b></label>
+  <select id="urlDomain"><option value="">Choose...</option><option>https://</option><option>learn.example.org</option><option>/igcse/topic5.html</option></select>
+  <label for="urlPath"><b>Which part is the page/file path?</b></label>
+  <select id="urlPath"><option value="">Choose...</option><option>https://</option><option>learn.example.org</option><option>/igcse/topic5.html</option></select>
+  <button onclick="checkURLLab()">Check my analysis</button>
+  <div id="urlLabOut" class="output" aria-live="polite"></div>
+ </div>
+ <div id="lab2" class="gamebox hidden">
+  <h3>Lab 2 – Simulate page retrieval</h3>
+  <p>Press each step in order. Watch how the browser, DNS, IP address, web server and HTML work together.</p>
+  <div class="flow">
+   <div class="node">Browser</div><span class="arrow">↔</span><div class="node">DNS</div><span class="arrow">↔</span><div class="node">Web server</div>
+  </div>
+  <div class="output" id="retrievalOut">Step 0 of 5. Start the simulation.</div>
+  <div class="tabs"><button onclick="nextRetrieval()">Next step</button><button class="secondary" onclick="resetRetrieval()">Restart</button></div>
+  <div class="progress"><div id="retrievalBar"></div></div>
+ </div>
+ <div id="lab3" class="gamebox hidden">
+  <h3>Lab 3 – Cookie Lab</h3>
+  <p>Choose a cookie type and see how long the information is intended to remain available.</p>
+  <div class="grid2">
+   <button onclick="cookieDemo('session')">Create session cookie</button>
+   <button class="secondary" onclick="cookieDemo('persistent')">Create persistent cookie</button>
+  </div>
+  <div id="cookieOut" class="output">No cookie selected yet.</div>
+ </div>
+ <div class="callout"><b>Challenge:</b> Explain why the browser needs the IP address even though the user types a domain name.</div>
+</section>
+
+<section id="practice">
+ <span class="tag">Stage 4 · 15 minutes</span>
+ <h2>Formal Practice Session – Cambridge-style assessment</h2>
+ <p><b>Student:</b> <span id="studentDisplay">Not entered</span></p>
+ <p><b>Assessment:</b> 15 questions · 2 marks each · 30 marks total · Suggested time 15 minutes.</p>
+ <div class="callout"><b>Instructions:</b> Answer all questions independently. Choose one answer for each question. This is the formal captured assessment. Only this score determines whether the game is unlocked and is included in the practice PDF.</div>
+ <div id="consentPanel" class="card no-print">
+  <b>Assessment rules</b>
+  <ul><li>Work independently and do not use another tab, window or application.</li><li>Answer every question before submitting.</li><li>Your name, responses and score will appear in the practice report.</li></ul>
+  <label class="option"><input type="checkbox" id="testConsent"> I understand and agree to the assessment rules.</label>
+  <button onclick="beginPractice()">Start formal practice</button>
+  <div id="consentError" class="feedback incorrect"></div>
+ </div>
+ <div id="assessmentArea" class="hidden">
+  <div class="progress"><div id="progressBar"></div></div><p id="progressText" class="small">0 of 15 questions answered</p>
+  <div id="questions"></div>
+  <div class="no-print">
+   <button onclick="submitPractice()">Submit practice</button>
+   <button class="secondary" onclick="resetPractice()">Reset answers</button>
+   <p id="practiceResult" class="feedback" aria-live="polite"></p>
+   <div id="pdfActions" class="hidden"><button class="goldbtn" onclick="printPractice()">Print / Save Practice PDF</button><p class="small">Choose “Save as PDF” in the print dialogue. The report contains the formal practice assessment, student responses and score.</p></div>
+  </div>
+  <div id="scorePanel" class="scorepanel hidden"></div>
+ </div>
+ <div id="answerKey" class="hidden"><h3>Answer feedback</h3><div id="answerFeedback"></div></div>
+</section>
+
+<section id="outcome">
+ <span class="tag">Stage 5 · 10 minutes</span>
+ <h2>Your next activity depends on your practice result</h2>
+ <div id="lockedOutcome" class="card">
+  <p>Complete and submit the formal practice assessment to unlock your next activity.</p>
+ </div>
+ <div id="gameOutcome" class="gamebox hidden">
+  <h3><span class="tag">70% or above · Game unlocked</span></h3>
+  <h2>Web Navigator Challenge</h2>
+  <p>You have demonstrated the required level of understanding. Complete this 10-minute offline challenge.</p>
+  <div id="gameQuestion" class="question"></div>
+  <p id="gameProgress" class="small">Challenge question 1 of 5</p>
+  <button onclick="nextGameQuestion()" id="gameNext">Check answer</button>
+  <div id="gameFeedback" class="feedback"></div>
+  <div class="progress"><div id="gameBar"></div></div>
+  <p id="gameComplete" class="good hidden"></p>
+ </div>
+ <div id="remedialOutcome" class="gamebox hidden">
+  <h3><span class="tag">Below 70% · Further practice required</span></h3>
+  <h2>Let's strengthen your understanding</h2>
+  <p>Your result shows that some concepts need more attention. Review the topics identified below, then complete the same-lesson remedial questions.</p>
+  <div id="remedialTopics"></div>
+  <div id="remedialQuestions"></div>
+  <button onclick="checkRemedial()">Check remedial practice</button>
+  <div id="remedialFeedback" class="feedback"></div>
+ </div>
+</section>
+
+<section>
+ <div class="kicker">Exam readiness</div>
+ <h2>Common mistakes to avoid</h2>
+ <ul>
+  <li>Do not write that the Internet and WWW are the same. The Internet is the infrastructure; the Web is a collection of websites and pages accessed using it.</li>
+  <li>Do not confuse a URL with a domain name. The domain is only one component of a URL.</li>
+  <li>Do not say HTTPS makes every website trustworthy. It encrypts the connection and helps authenticate the server.</li>
+  <li>Do not confuse DNS with a web server. DNS finds the IP address; the web server provides the requested web resource.</li>
+  <li>Do not confuse session cookies with persistent cookies. Their difference concerns how long they remain stored.</li>
+ </ul>
+</section>
+<section>
+ <h2>Cambridge syllabus coverage check</h2>
+ <p>This lesson is designed to cover all six objectives in section 5.1 of the Cambridge IGCSE Computer Science 0984 syllabus for examination in 2026, 2027 and 2028.</p>
+ <table><thead><tr><th>Objective</th><th>Covered in this page</th></tr></thead><tbody>
+ <tr><td>5.1.1 Internet and WWW distinction</td><td>Teacher Session, practice and exploration</td></tr>
+ <tr><td>5.1.2 URL</td><td>Teacher Session, URL Detective and practice</td></tr>
+ <tr><td>5.1.3 HTTP and HTTPS</td><td>Teacher Session and practice</td></tr>
+ <tr><td>5.1.4 Browser purpose and listed functions</td><td>Teacher Session and practice</td></tr>
+ <tr><td>5.1.5 Web-page retrieval: browser, IP, DNS, web server, HTML</td><td>Teacher Session, retrieval simulation and practice</td></tr>
+ <tr><td>5.1.6 Cookies: session, persistent and specified uses</td><td>Teacher Session, Cookie Lab and practice</td></tr>
+ </tbody></table>
+ <p class="small">Primary reference: Cambridge IGCSE (9–1) Computer Science 0984 syllabus, 2026–2028, section 5.1, pages 21–22.</p>
+</section>
+</main>
+<footer>
+ <b>MODERN ENGLISH SCHOOL CAIRO</b> · CARE · CHALLENGE · INSPIRE<br>
+ Ravi Raju · Computer Science Educator · Ravi Raju's Programming Lab
+</footer>
+</div>
+<script>
+const assessment = [
+{q:"Which statement correctly describes the Internet?",o:["It is the infrastructure of interconnected networks.","It is only a collection of web pages.","It is a type of web browser."],a:0,why:"The Internet is the worldwide infrastructure of interconnected networks." ,topic:"Internet and WWW"},
+{q:"What is the World Wide Web?",o:["The physical cables connecting all computers","The collection of websites and web pages accessed using the Internet","A protocol used only for email"],a:1,why:"The Web is a collection of websites and web pages accessed using the Internet.",topic:"Internet and WWW"},
+{q:"What is a URL?",o:["A text-based address for a web page or resource","A program that displays images","A device's hardware serial number"],a:0,why:"A URL is a text-based address used to identify a web resource.",topic:"URL"},
+{q:"Which component of https://www.example.org/news.html is the protocol?",o:["www.example.org","/news.html","https://"],a:2,why:"The protocol appears at the beginning of the URL: https://.",topic:"URL"},
+{q:"Which part of a URL identifies the website's human-readable Internet address?",o:["The domain name","The page title","The file extension only"],a:0,why:"The domain name identifies the website's human-readable Internet address.",topic:"URL"},
+{q:"What is the main purpose of HTTP?",o:["To provide rules for communication between a browser and web server","To translate every domain name into an IP address","To store web pages permanently on a user's computer"],a:0,why:"HTTP defines how a browser and web server exchange requests and responses.",topic:"HTTP and HTTPS"},
+{q:"What additional protection does HTTPS provide?",o:["It guarantees that all website content is truthful","It encrypts data in transit using TLS","It prevents all malware from reaching a computer"],a:1,why:"HTTPS uses TLS to encrypt communication between browser and server.",topic:"HTTP and HTTPS"},
+{q:"What is the main purpose of a web browser?",o:["To render HTML and display web pages","To assign IP addresses to all Internet devices","To host every website"],a:0,why:"The main purpose of a browser is to render HTML and display web pages.",topic:"Web browser"},
+{q:"Which browser function allows a user to return quickly to a saved website?",o:["History","Bookmarks or favourites","Address bar"],a:1,why:"Bookmarks or favourites save links for quick access.",topic:"Web browser"},
+{q:"What is the role of DNS when a user enters a URL?",o:["It translates the domain name into an IP address","It renders HTML into a web page","It stores the user's browsing history"],a:0,why:"DNS looks up a domain name and returns its corresponding IP address.",topic:"Web-page retrieval"},
+{q:"Why is an IP address needed during web-page retrieval?",o:["It identifies the destination server/device for network communication","It stores the page's HTML code in the browser","It records the user's favourite websites"],a:0,why:"The IP address helps route data to the correct destination server/device.",topic:"Web-page retrieval"},
+{q:"What does a web server do in the page retrieval process?",o:["Receives the browser's request and sends a response containing the requested resource","Converts every URL into a domain name","Displays the page on the user's monitor"],a:0,why:"The web server processes the request and sends a response with the requested resource.",topic:"Web-page retrieval"},
+{q:"What does the browser do with HTML received from a web server?",o:["Renders/interprets it to display the web page","Uses it to look up the server's IP address","Deletes it immediately without processing"],a:0,why:"The browser interprets and renders HTML to display the page.",topic:"Web-page retrieval"},
+{q:"Which statement describes a session cookie?",o:["It is normally removed when the browsing session ends","It must remain on the device permanently","It is the same thing as a web server"],a:0,why:"A session cookie is normally temporary and removed when the browsing session ends.",topic:"Cookies"},
+{q:"Which is an example of a use of cookies identified in the syllabus?",o:["Increasing the computer's RAM","Holding items in an online shopping cart","Converting HTML into machine code"],a:1,why:"Cookies can hold shopping-cart information, preferences, personal details and login/session information.",topic:"Cookies"}
+];
+let student="",practiceStarted=false,submitted=false,terminated=false,warningCount=0,score=0;
+let retrievalStep=0,gameIndex=0,gameScore=0,gameAwaiting=false;
+function startLesson(){
+ const name=document.getElementById("studentName").value.trim();
+ if(name.length<3){document.getElementById("gateError").textContent="Please enter your full name.";return;}
+ student=name;document.getElementById("studentDisplay").textContent=student;
+ document.getElementById("nameGate").style.display="none";document.getElementById("lesson").style.display="block";
+ buildAssessment();
+}
+function checkRecall(){
+ const ans=["a","a","a"];let n=0;
+ ans.forEach((v,i)=>{if(document.querySelector('input[name="r'+(i+1)+'"]:checked')?.value===v)n++;});
+ document.getElementById("recallScore").textContent="You scored "+n+"/3. "+(n===3?"Excellent recall!":"Review the feedback in the lesson and keep going.");
+}
+function showLab(n){
+ [1,2,3].forEach(i=>{document.getElementById("lab"+i).classList.toggle("hidden",i!==n);document.getElementById("tab"+i).classList.toggle("active",i===n);});
+}
+function checkURLLab(){
+ const vals=[document.getElementById("urlProtocol").value,document.getElementById("urlDomain").value,document.getElementById("urlPath").value];
+ const correct=["https://","learn.example.org","/igcse/topic5.html"];
+ let n=vals.filter((v,i)=>v===correct[i]).length;
+ document.getElementById("urlLabOut").textContent="You identified "+n+"/3 components correctly. "+(n===3?"Excellent URL analysis!":"Remember: protocol first, domain name second, then the path or file name.");
+}
+const retrieval=[
+"1. The user enters a URL. The browser reads the address and identifies the domain name.",
+"2. The browser asks DNS to look up the domain name. DNS returns the corresponding IP address.",
+"3. The IP address helps direct the request to the correct web server. The browser sends an HTTP or HTTPS request.",
+"4. The web server receives the request and sends a response containing the requested web resource, including HTML where appropriate.",
+"5. The browser interprets and renders the HTML, then displays the web page to the user."
+];
+function nextRetrieval(){
+ if(retrievalStep<retrieval.length){document.getElementById("retrievalOut").textContent=retrieval[retrievalStep];retrievalStep++;document.getElementById("retrievalBar").style.width=(retrievalStep/5*100)+"%";}
+ else document.getElementById("retrievalOut").textContent="Simulation complete. You can now explain the roles of the browser, DNS, IP address, web server and HTML.";
+}
+function resetRetrieval(){retrievalStep=0;document.getElementById("retrievalOut").textContent="Step 0 of 5. Start the simulation.";document.getElementById("retrievalBar").style.width="0%";}
+function cookieDemo(type){
+ document.getElementById("cookieOut").innerHTML=type==="session"?
+ "<b>Session cookie created.</b><br>Example: a temporary shopping-cart/session identifier. It normally disappears when the browsing session ends.":
+ "<b>Persistent cookie created.</b><br>Example: a saved language preference with an expiry date. It can remain after the browser closes until it expires or is deleted.";
+}
+function buildAssessment(){
+ const root=document.getElementById("questions");root.innerHTML="";
+ assessment.forEach((q,i)=>{
+  const d=document.createElement("div");d.className="question";
+  d.innerHTML='<p>Question '+(i+1)+' <span class="tag">2 marks</span></p><p>'+q.q+'</p>'+q.o.map((o,j)=>'<label class="option"><input type="radio" name="q'+i+'" value="'+j+'" onchange="updateProgress()"> '+String.fromCharCode(65+j)+'. '+o+'</label>').join("")+'<div id="fb'+i+'" class="feedback"></div>';
+  root.appendChild(d);
+ });
+}
+function beginPractice(){
+ if(!document.getElementById("testConsent").checked){document.getElementById("consentError").textContent="Please confirm the assessment rules before starting.";return;}
+ practiceStarted=true;document.getElementById("consentPanel").classList.add("hidden");document.getElementById("assessmentArea").classList.remove("hidden");
+}
+function updateProgress(){
+ const n=assessment.filter((q,i)=>document.querySelector('input[name="q'+i+'"]:checked')).length;
+ document.getElementById("progressBar").style.width=(n/assessment.length*100)+"%";
+ document.getElementById("progressText").textContent=n+" of "+assessment.length+" questions answered";
+}
+function submitPractice(){
+ if(submitted||terminated||!practiceStarted)return;
+ const missing=assessment.filter((q,i)=>!document.querySelector('input[name="q'+i+'"]:checked')).length;
+ if(missing){document.getElementById("practiceResult").textContent="Please answer all questions. "+missing+" remain unanswered.";return;}
+ score=0;let feedback="",weak={};
+ assessment.forEach((q,i)=>{
+  const chosen=Number(document.querySelector('input[name="q'+i+'"]:checked').value),ok=chosen===q.a;
+  if(ok)score+=2;else weak[q.topic]=(weak[q.topic]||0)+1;
+  const fb=(ok?"Correct. ":"Not correct. ")+q.why;
+  document.getElementById("fb"+i).textContent=fb;document.getElementById("fb"+i).className="feedback "+(ok?"correct":"incorrect");
+  feedback+="<p><b>Q"+(i+1)+" – "+(ok?"2/2":"0/2")+"</b>: "+q.why+"</p>";
+ });
+ submitted=true;const pct=Math.round(score/30*100);
+ document.getElementById("practiceResult").textContent="Formal practice score: "+score+"/30 ("+pct+"%).";
+ document.getElementById("scorePanel").classList.remove("hidden");
+ const responseReport=assessment.map((q,i)=>{
+  const selected=Number(document.querySelector('input[name="q'+i+'"]:checked').value);
+  return "<p><b>Q"+(i+1)+":</b> "+escapeHTML(q.q)+"<br><b>Student response:</b> "+escapeHTML(q.o[selected])+"<br><b>Correct answer:</b> "+escapeHTML(q.o[q.a])+"<br><b>Mark:</b> "+(selected===q.a?"2/2":"0/2")+"</p>";
+ }).join("");
+ document.getElementById("scorePanel").innerHTML="<h3>Practice Assessment Report</h3><b>School:</b> Modern English School Cairo<br><b>Student:</b> "+escapeHTML(student)+"<br><b>Lesson:</b> T05-P01 – The Internet and the World Wide Web<br><b>Score:</b> "+score+"/30<br><b>Percentage:</b> "+pct+"%<br><b>Outcome:</b> "+(pct>=70?"Game unlocked":"Further practice required")+"<hr><h4>Student responses</h4>"+responseReport;
+ document.getElementById("answerFeedback").innerHTML=feedback;document.getElementById("answerKey").classList.remove("hidden");
+ document.getElementById("pdfActions").classList.remove("hidden");
+ document.querySelectorAll('#questions input').forEach(x=>x.disabled=true);
+ document.getElementById("lockedOutcome").classList.add("hidden");
+ if(pct>=70){
+  const gamePanel=document.getElementById("gameOutcome");
+  gamePanel.classList.remove("hidden");
+  document.getElementById("remedialOutcome").classList.add("hidden");
+  buildGame();
+  document.getElementById("lockedOutcome").innerHTML="<b>Congratulations, "+escapeHTML(student)+"!</b><br>Your score is "+score+"/30 ("+pct+"%). The 10-minute Web Navigator Challenge is unlocked. <button type=\"button\" onclick=\"openGame()\">OPEN WEB NAVIGATOR GAME</button>";
+  document.getElementById("lockedOutcome").classList.remove("hidden");
+  gamePanel.style.display="block";
+  document.getElementById("lockedOutcome").scrollIntoView({behavior:"auto",block:"center"});
+  // Keep a visible, clickable route to the activity even if automatic scrolling is blocked.
+  setTimeout(openGame,500);
+ }else{
+  document.getElementById("remedialOutcome").classList.remove("hidden");
+  document.getElementById("gameOutcome").classList.add("hidden");
+  buildRemedial(weak);
+  document.getElementById("lockedOutcome").innerHTML="<b>Further practice required.</b><br>Your score is "+score+"/30 ("+pct+"%). The game remains locked. Complete the remedial practice below and review the lesson concepts.";
+  document.getElementById("lockedOutcome").classList.remove("hidden");
+  document.getElementById("remedialOutcome").scrollIntoView({behavior:"smooth",block:"start"});
+ }
+}
+function buildRemedial(weak){
+ const topics=Object.keys(weak);
+ document.getElementById("remedialTopics").innerHTML=topics.length?"<b>Topics to review:</b><ul>"+topics.map(t=>"<li>"+escapeHTML(t)+" – "+weak[t]+" question(s) to revisit.</li>").join("")+"</ul>":"<p>Review all six learning objectives.</p>";
+ const qs=assessment.map((q,i)=>({q,i})).filter(x=>!document.querySelector('input[name="q'+x.i+'"]:checked')||Number(document.querySelector('input[name="q'+x.i+'"]:checked').value)!==x.q.a);
+ const chosen=qs.length?qs.slice(0,Math.min(5,qs.length)):assessment.slice(0,5).map((q,i)=>({q,i}));
+ const box=document.getElementById("remedialQuestions");box.innerHTML="";
+ chosen.forEach((x,j)=>{
+  const div=document.createElement("div");div.className="question";div.dataset.original=x.i;
+  div.innerHTML="<p>Remedial question "+(j+1)+"</p><p>"+x.q.q+"</p>"+x.q.o.map((o,k)=>'<label class="option"><input type="radio" name="rem'+j+'" value="'+k+'"> '+String.fromCharCode(65+k)+". "+o+"</label>").join("");
+  box.appendChild(div);
+ });
+ box.dataset.count=chosen.length;
+}
+function checkRemedial(){
+ const box=document.getElementById("remedialQuestions"),count=Number(box.dataset.count);let correct=0,answered=0;
+ for(let j=0;j<count;j++){
+  const selected=document.querySelector('input[name="rem'+j+'"]:checked');
+  if(selected){answered++;const orig=Number(box.children[j].dataset.original);if(Number(selected.value)===assessment[orig].a)correct++;}
+ }
+ if(answered<count){document.getElementById("remedialFeedback").textContent="Please answer all "+count+" remedial questions.";return;}
+ document.getElementById("remedialFeedback").textContent="Remedial practice: "+correct+"/"+count+" correct. "+(correct===count?"Well done. Revisit the lesson and ask your teacher to review your progress.":"Review the explanations in the Teacher Session and try these questions again.");
+ document.getElementById("remedialFeedback").className="feedback "+(correct===count?"correct":"incorrect");
+}
+const gameQs=[
+{q:"A student enters www.school.edu in the address bar. Which service finds the server's IP address?",o:["DNS","HTML","Cookie"],a:0,why:"DNS resolves the domain name to an IP address."},
+{q:"Which browser feature stores a link for quick future access?",o:["History","Bookmark","Refresh"],a:1,why:"A bookmark or favourite saves a link."},
+{q:"Which component sends the requested HTML resource to the browser?",o:["Web server","DNS","Address bar"],a:0,why:"The web server responds to the browser's request."},
+{q:"A shopping website remembers the items in your cart. Which technology can help do this?",o:["IP address only","Cookie","HTML heading"],a:1,why:"A cookie can store a cart identifier or related state."},
+{q:"Which statement about HTTPS is accurate?",o:["It guarantees a website is honest","It uses TLS to encrypt data in transit","It replaces the need for a web server"],a:1,why:"HTTPS protects communication using TLS, but does not guarantee website honesty."}
+];
+function openGame(){
+ const panel=document.getElementById("gameOutcome");
+ panel.classList.remove("hidden");
+ panel.style.display="block";
+ panel.scrollIntoView({behavior:"auto",block:"start"});
+}
+function buildGame(){gameIndex=0;gameScore=0;renderGame();}
+function renderGame(){
+ const q=gameQs[gameIndex];gameAwaiting=false;
+ document.getElementById("gameQuestion").innerHTML="<p>"+q.q+"</p>"+q.o.map((o,i)=>'<label class="option"><input type="radio" name="gq" value="'+i+'"> '+String.fromCharCode(65+i)+". "+o+"</label>").join("");
+ document.getElementById("gameProgress").textContent="Challenge question "+(gameIndex+1)+" of 5";
+ document.getElementById("gameFeedback").textContent="";
+ document.getElementById("gameNext").textContent="Check answer";
+ document.getElementById("gameBar").style.width=(gameIndex/5*100)+"%";
+}
+function nextGameQuestion(){
+ if(!gameAwaiting){
+  const a=document.querySelector('input[name="gq"]:checked');if(!a){document.getElementById("gameFeedback").textContent="Choose an answer first.";return;}
+  const q=gameQs[gameIndex],ok=Number(a.value)===q.a;if(ok)gameScore++;
+  document.getElementById("gameFeedback").textContent=(ok?"Correct! ":"Not quite. ")+q.why;
+  document.getElementById("gameFeedback").className="feedback "+(ok?"correct":"incorrect");
+  document.querySelectorAll('input[name="gq"]').forEach(x=>x.disabled=true);
+  gameAwaiting=true;document.getElementById("gameNext").textContent=gameIndex===4?"Finish challenge":"Next question";
+ }else{
+  gameIndex++;
+  if(gameIndex>=5){
+   document.getElementById("gameQuestion").innerHTML="<h3>Challenge completed!</h3><p>You scored "+gameScore+"/5.</p>";
+   document.getElementById("gameNext").classList.add("hidden");
+   document.getElementById("gameBar").style.width="100%";
+   document.getElementById("gameComplete").classList.remove("hidden");
+   document.getElementById("gameComplete").textContent="You completed the Web Navigator Challenge. Great work!";
+  }else renderGame();
+ }
+}
+function resetPractice(){
+ if(submitted||terminated)return;
+ document.querySelectorAll('#questions input').forEach(x=>x.checked=false);updateProgress();
+}
+function printPractice(){
+ if(!submitted||terminated)return;
+ document.body.classList.add("print-practice");
+ const old=document.title;document.title="IGCSE_0984_T05_P01_Practice_"+student.replace(/[^a-z0-9]+/gi,"_");
+ window.print();document.title=old;document.body.classList.remove("print-practice");
+}
+document.addEventListener("visibilitychange",()=>{
+ if(document.hidden&&practiceStarted&&!submitted&&!terminated){
+  warningCount++;
+  if(warningCount===1)alert("Warning 1 of 2: Please remain on this assessment page. A second attempt to leave will close the assessment.");
+  else{
+   terminated=true;
+   document.querySelectorAll("#questions input").forEach(x=>x.disabled=true);
+   document.getElementById("practiceResult").textContent="You violated the exam rule. Your assessment is closed.";
+   document.getElementById("practiceResult").className="feedback incorrect";
+   document.getElementById("pdfActions").classList.add("hidden");
+   document.getElementById("answerKey").classList.add("hidden");
+  }
+ }
+});
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+</script>
+</body>
+</html>

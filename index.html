@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102744">
+<title>IGCSE Computer Science 0984 | Topic 5 Learning Hub</title>
+<style>
+:root{--navy:#102744;--deep:#091b31;--blue:#1769aa;--cyan:#20b7d5;--gold:#f3bd43;--ink:#1d2b3a;--muted:#5b6b7c;--paper:#f2f6fa;--line:#d8e2ec;--green:#17835b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "Segoe UI",Arial,sans-serif}
+header{background:radial-gradient(circle at 80% 10%,#176d9a 0,transparent 33%),linear-gradient(125deg,var(--deep),#123c63 72%,#087d91);color:#fff;padding:26px max(5vw,20px) 42px;overflow:hidden;position:relative}
+.school{text-transform:uppercase;letter-spacing:2px;font-weight:800;font-size:.85rem;color:#e1f2ff}.motto{color:#f5d77c;letter-spacing:1.5px;font-weight:800}
+.brand{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:950;letter-spacing:2px;color:#fff;margin-top:12px;line-height:1.05}.role{color:#d9efff;font-size:1.05rem}.lab{font-size:1.15rem;font-weight:800;color:#f5d77c;margin-top:5px}.dept{color:#d9efff;font-size:.88rem}
+.hero{max-width:1200px;margin:25px auto 0;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:25px}
+.eyebrow{color:#8deaff;text-transform:uppercase;letter-spacing:2px;font-size:.8rem;font-weight:900}
+h1{font-size:clamp(2rem,4.7vw,3.6rem);line-height:1.08;margin:8px 0 12px}.hero p{max-width:650px;color:#e0f1fc;font-size:1.08rem;margin:0}
+.heroart{width:100%;max-width:500px;justify-self:end;filter:drop-shadow(0 12px 25px #0005)}
+.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid #ffffff55;background:#ffffff12;border-radius:30px;padding:5px 12px;font-size:.83rem;color:#f1f9ff;font-weight:700}
+main{max-width:1120px;margin:0 auto;padding:25px 18px 50px}
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-4px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px 18px;box-shadow:0 5px 16px #1234}.stat strong{display:block;color:var(--navy);font-size:1.35rem}.stat span{font-size:.87rem;color:var(--muted)}
+.sectionhead{margin:34px 0 15px}.sectionhead h2{color:var(--navy);font-size:1.65rem;margin:0}.sectionhead p{margin:4px 0;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 7px 22px #183b5b0c;display:flex;flex-direction:column;min-width:0;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #183b5b18}
+.cardtop{padding:19px 19px 15px;color:#fff;min-height:154px;position:relative;overflow:hidden}
+.cardtop:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #ffffff30;border-radius:50%;right:-45px;top:-62px;box-shadow:0 0 0 18px #ffffff0b,0 0 0 38px #ffffff08}
+.one{background:linear-gradient(130deg,#10436b,#1688aa)}.two{background:linear-gradient(130deg,#173b69,#6d4b9a)}.three{background:linear-gradient(130deg,#102c4f,#a52f4b)}
+.number{font-size:.78rem;letter-spacing:1.5px;font-weight:900;color:#c9f6ff}.cardtop h3{font-size:1.38rem;line-height:1.2;margin:8px 0 5px;max-width:90%}.cardtop p{margin:0;color:#e4f4ff;font-size:.9rem}
+.cardbody{padding:17px 19px 19px;display:flex;flex-direction:column;flex:1}.cardbody ul{padding-left:19px;margin:0 0 17px;color:#435364;font-size:.92rem}.cardbody li{margin:4px 0}
+.cardfoot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+a.open{display:inline-block;text-decoration:none;background:var(--blue);color:#fff;padding:10px 15px;border-radius:9px;font-weight:800}.a1{background:#147c9f!important}.a2{background:#66519a!important}.a3{background:#a33d50!important}
+.done{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:6px}.done input{width:17px;height:17px;accent-color:var(--green)}
+.progressbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px 19px;margin-top:22px}
+.progtitle{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.progtitle strong{color:var(--navy)}.bar{height:10px;background:#e7edf3;border-radius:20px;overflow:hidden;margin-top:11px}.bar span{height:100%;width:0;display:block;background:linear-gradient(90deg,#1a83b0,#24bd9a);transition:width .3s}
+.study{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}.studyitem{background:#eaf3f9;border-radius:12px;padding:15px}.studyitem b{color:#174c73}
+.note{border-left:4px solid var(--gold);background:#fff8e7;padding:13px 16px;border-radius:8px;margin-top:20px}
+footer{background:var(--navy);color:#dceafa;text-align:center;padding:22px 15px;font-size:.9rem}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.heroart{max-width:340px;justify-self:center}.cards{grid-template-columns:1fr}.overview{grid-template-columns:1fr 1fr}.cardtop{min-height:135px}}
+@media(max-width:520px){.overview{grid-template-columns:1fr}.study{grid-template-columns:1fr}header{padding-top:20px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="school">Modern English School Cairo</div>
+ <div class="motto">CARE · CHALLENGE · INSPIRE</div>
+ <div class="brand">RAVI RAJU</div>
+ <div class="role">Computer Science Educator</div>
+ <div class="lab">Ravi Raju’s Programming Lab</div>
+ <div class="dept">COMPUTER SCIENCE DEPARTMENT</div>
+ <div class="hero">
+  <div>
+   <div class="eyebrow">Cambridge IGCSE Computer Science · 0984</div>
+   <h1>Topic 5<br>The Internet and its Uses</h1>
+   <p>Welcome to your Topic 5 learning hub. Explore the Internet and the World Wide Web, understand digital currency and blockchain, and learn how to protect systems and data from cyber security threats.</p>
+   <div class="meta"><span class="pill">Syllabus 2026–2028</span><span class="pill">3 learning sections</span><span class="pill">Offline-friendly lessons</span></div>
+  </div>
+  <svg class="heroart" viewBox="0 0 520 330" role="img" aria-label="Illustration of internet connections, digital currency and cyber security">
+   <defs><linearGradient id="g1" x1="0" x2="1"><stop stop-color="#26d3ec"/><stop offset="1" stop-color="#f4c34f"/></linearGradient><radialGradient id="gl"><stop stop-color="#1e9dc5" stop-opacity=".5"/><stop offset="1" stop-color="#1e9dc5" stop-opacity="0"/></radialGradient></defs>
+   <circle cx="260" cy="160" r="145" fill="url(#gl)"/>
+   <circle cx="260" cy="160" r="112" fill="none" stroke="#5bdcf3" stroke-width="2" opacity=".8"/>
+   <ellipse cx="260" cy="160" rx="48" ry="112" fill="none" stroke="#5bdcf3" stroke-width="2" opacity=".7"/>
+   <ellipse cx="260" cy="160" rx="112" ry="43" fill="none" stroke="#5bdcf3" stroke-width="2" opacity=".7"/>
+   <path d="M151 160H369M260 48V272" stroke="#5bdcf3" stroke-width="1.5" opacity=".55"/>
+   <g fill="#f4c34f" stroke="#fff" stroke-width="2"><circle cx="260" cy="48" r="7"/><circle cx="372" cy="160" r="7"/><circle cx="260" cy="272" r="7"/><circle cx="148" cy="160" r="7"/></g>
+   <g stroke="url(#g1)" stroke-width="4" fill="#123b5d"><path d="M260 88L314 110V164Q314 216 260 242Q206 216 206 164V110Z"/><rect x="238" y="145" width="44" height="38" rx="7" fill="#1b8bb0"/><path d="M247 145V133a13 13 0 0 1 26 0v12" fill="none"/></g>
+   <g fill="none" stroke="#68dff3" stroke-width="3"><path d="M100 85L155 112L206 128M420 88L365 112L314 128M105 245L160 215L209 198M415 245L360 215L311 198"/></g>
+   <g fill="#f4c34f" stroke="#fff" stroke-width="2"><circle cx="100" cy="85" r="25"/><circle cx="420" cy="88" r="25"/></g>
+   <text x="100" y="94" text-anchor="middle" font-size="27" font-weight="bold" fill="#173957">₿</text>
+   <g fill="#123b5d" stroke="#68dff3" stroke-width="3"><rect x="66" y="222" width="70" height="48" rx="8"/><rect x="385" y="222" width="70" height="48" rx="8"/></g>
+   <g fill="#68dff3"><path d="M84 244h34v5H84zm0 11h25v4H84zM403 244h34v5h-34zm0 11h25v4h-25z"/></g>
+   <text x="260" y="302" text-anchor="middle" font-size="13" fill="#d9f7ff" letter-spacing="2">CONNECT · TRANSFER · PROTECT</text>
+  </svg>
+ </div>
+</header>
+<main>
+ <div class="overview">
+  <div class="stat"><strong>3 sections</strong><span>Complete Topic 5 step by step</span></div>
+  <div class="stat"><strong>50 minutes each</strong><span>Structured lesson sequence</span></div>
+  <div class="stat"><strong>150 minutes</strong><span>Total guided learning time</span></div>
+ </div>
+ <div class="sectionhead"><h2>Choose your lesson</h2><p>Work through the sections in order. Each lesson opens as a separate webpage.</p></div>
+ <div class="cards">
+  <article class="card">
+   <div class="cardtop one"><div class="number">SECTION 5.1 · T05-P01</div><h3>The Internet and the World Wide Web</h3><p>How browsers, web pages and cookies work</p></div>
+   <div class="cardbody"><ul><li>Internet and WWW</li><li>URLs, HTTP and HTTPS</li><li>Browsers and web-page retrieval</li><li>DNS, IP addresses and web servers</li><li>Session and persistent cookies</li></ul><div class="cardfoot"><a class="open a1" href="T05-P01-Internet-and-WWW.html">Open Lesson 5.1 →</a><label class="done"><input type="checkbox" data-lesson="p1"> Completed</label></div></div>
+  </article>
+  <article class="card">
+   <div class="cardtop two"><div class="number">SECTION 5.2 · T05-P02</div><h3>Digital Currency</h3><p>Electronic currency and blockchain records</p></div>
+   <div class="cardbody"><ul><li>Meaning and use of digital currency</li><li>Blockchain as a digital ledger</li><li>Time-stamped transaction records</li><li>Linked blocks and transaction tracking</li></ul><div class="cardfoot"><a class="open a2" href="T05-P02-Digital-Currency.html">Open Lesson 5.2 →</a><label class="done"><input type="checkbox" data-lesson="p2"> Completed</label></div></div>
+  </article>
+  <article class="card">
+   <div class="cardtop three"><div class="number">SECTION 5.3 · T05-P03</div><h3>Cyber Security</h3><p>Recognising threats and protecting data</p></div>
+   <div class="cardbody"><ul><li>Cyber security threats and attack methods</li><li>Malware: virus, worm, Trojan and more</li><li>Phishing, pharming and social engineering</li><li>Authentication, firewalls and other defences</li></ul><div class="cardfoot"><a class="open a3" href="T05-P03-Cyber-Security-Standalone.html">Open Lesson 5.3 →</a><label class="done"><input type="checkbox" data-lesson="p3"> Completed</label></div></div>
+  </article>
+ </div>
+ <section class="progressbox">
+  <div class="progtitle"><strong>Your Topic 5 progress</strong><span id="progressText">0 of 3 lessons completed</span></div>
+  <div class="bar"><span id="progressBar"></span></div>
+  <p class="small">Tick a lesson when you have completed it. Your selections are saved in this browser on this device.</p>
+ </section>
+ <div class="sectionhead"><h2>Recommended learning routine</h2><p>Follow the same structure in each 50-minute lesson.</p></div>
+ <div class="study">
+  <div class="studyitem"><b>5 minutes · Recall</b><br>Activate prior knowledge and connect it to the new topic.</div>
+  <div class="studyitem"><b>10 minutes · Teacher session</b><br>Learn the syllabus content and examine worked explanations.</div>
+  <div class="studyitem"><b>10 minutes · Interactive exploration</b><br>Use the activities and simulations to deepen understanding.</div>
+  <div class="studyitem"><b>15 minutes · Formal practice</b><br>Complete the captured assessment and review your answers.</div>
+  <div class="studyitem" style="grid-column:1/-1"><b>10 minutes · Game or remedial practice</b><br>At 70% or above, unlock the learning game. Below 70%, complete further practice on the same lesson.</div>
+ </div>
+ <div class="note"><b>Study reminder:</b> The formal Practice Session is the captured assessment. Recall activities, exploration tasks, games and remedial practice are learning activities and are not included in the formal practice score.</div>
+</main>
+<footer>Modern English School Cairo · Care · Challenge · Inspire<br>Ravi Raju’s Programming Lab · Computer Science Department<br><span style="opacity:.8">Cambridge IGCSE Computer Science 0984 · Topic 5</span></footer>
+<script>
+(function(){
+ const boxes=[...document.querySelectorAll('input[data-lesson]')];
+ const key='ravi_topic5_progress_0984';
+ function load(){let saved={};try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}boxes.forEach(b=>b.checked=!!saved[b.dataset.lesson]);update();}
+ function update(){let saved={};boxes.forEach(b=>saved[b.dataset.lesson]=b.checked);try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){}let n=boxes.filter(b=>b.checked).length;document.getElementById('progressText').textContent=n+' of 3 lessons completed';document.getElementById('progressBar').style.width=(n/3*100)+'%';}
+ boxes.forEach(b=>b.addEventListener('change',update));load();
+})();
+</script>
+</body></html>

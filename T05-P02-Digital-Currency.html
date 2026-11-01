@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T05-P02 | Digital Currency | Ravi Raju's Programming Lab</title>
+<style>
+:root{--navy:#102744;--blue:#1769aa;--cyan:#20b7d5;--gold:#f3bd43;--ink:#1e293b;--muted:#5b6b7c;--paper:#f3f7fb;--line:#d8e2ec;--green:#16845b;--red:#b83232}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.58 "Segoe UI",Arial,sans-serif}
+header{background:linear-gradient(120deg,#0c2039,#124d7c 68%,#087d9a);color:white;padding:26px 5vw 24px}
+.school{text-transform:uppercase;letter-spacing:2px;font-size:.82rem;font-weight:700;color:#dceeff}
+.motto{color:#f5d77c;font-weight:700;letter-spacing:1px}
+.brand{margin:14px 0 0;font-size:clamp(2rem,5vw,3.3rem);font-weight:900;letter-spacing:2px}
+.role{font-size:1.04rem;color:#e1f4ff}.lab{font-size:1.15rem;font-weight:700;color:#f5d77c;margin-top:4px}
+.department{font-size:.85rem;color:#dceeff;margin-top:7px}
+.banner{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:20px;padding-top:16px;border-top:1px solid #ffffff40}
+.banner h1{font-size:clamp(1.55rem,3vw,2.35rem);line-height:1.15;margin:0 0 8px}
+.banner p{margin:0;color:#e4f3ff}.banner svg{width:min(32%,240px);min-width:130px;height:auto}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 4vw;display:flex;gap:8px;flex-wrap:wrap;box-shadow:0 3px 12px #10274412}
+nav a{color:var(--navy);text-decoration:none;font-size:.88rem;font-weight:700;padding:6px 10px;border-radius:7px}nav a:hover{background:#e8f4fb}
+main{max-width:1050px;margin:24px auto;padding:0 18px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:22px;margin:18px 0;box-shadow:0 5px 18px #183b5b0a}
+h2{color:var(--navy);margin:0 0 12px;font-size:1.45rem}h3{color:#155b8a;margin:18px 0 7px}
+.kicker{color:var(--blue);font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
+.tile{background:#f2f8fc;border:1px solid #d7e9f4;border-radius:12px;padding:14px}
+.tile b{color:#124c77}.note{border-left:4px solid var(--gold);background:#fff9e9;padding:12px 15px;border-radius:7px}
+.good{border-left:4px solid var(--green);background:#effaf5;padding:12px 15px;border-radius:7px}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px;margin:14px 0}
+.step{background:#eaf5fb;border:1px solid #c7e0ee;border-radius:10px;padding:12px;text-align:center}
+.step strong{display:block;color:#12527d}.arrow{text-align:center;color:#1683a7;font-size:1.4rem}
+button{border:0;border-radius:9px;background:var(--blue);color:white;padding:10px 16px;font-weight:700;cursor:pointer;font-size:.95rem}
+button:hover{filter:brightness(.92)}button.secondary{background:#e7eef5;color:#183b5b}button.gold{background:#e6a91e;color:#172b40}
+input[type=text]{padding:11px;border:1px solid #9fb4c6;border-radius:8px;font:inherit;width:min(100%,420px)}
+.hidden{display:none!important}.question{padding:13px;border:1px solid var(--line);border-radius:10px;margin:12px 0}.question p{font-weight:700;margin:0 0 8px}.question label{display:block;padding:4px 0;cursor:pointer}
+.feedback{font-weight:700;margin-top:8px}.timer{float:right;background:#e8f4fb;color:#124c77;padding:5px 10px;border-radius:8px;font-weight:700}
+.progress{height:8px;background:#e6edf3;border-radius:10px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;width:0;background:var(--cyan);transition:width .3s}
+footer{text-align:center;background:var(--navy);color:#d9eafa;padding:20px;margin-top:35px}
+.small{font-size:.88rem;color:var(--muted)}.tag{display:inline-block;background:#e7f3fb;color:#14527c;border-radius:20px;padding:3px 9px;font-size:.78rem;font-weight:700;margin:3px}
+table{border-collapse:collapse;width:100%;margin:10px 0}td,th{border:1px solid var(--line);padding:9px;text-align:left}th{background:#edf5fa;color:#123e60}
+.game-frame{width:100%;height:650px;border:1px solid var(--line);border-radius:12px;background:#fff}.game-fallback{background:#eef7fc;border:1px solid #cfe3f0;border-radius:10px;padding:14px;margin-top:12px}.game-fallback a{color:#075b96;font-weight:800}.game-note{font-size:.9rem;color:var(--muted)}
+@media(max-width:600px){.banner{align-items:flex-start}.banner svg{width:110px}.card{padding:16px}nav{position:static}}
+@media print{body{background:#fff;font-size:11pt}body>header,nav,footer,#gate,#objectives,#recall,#teacher,#explore,#outcome,#practice>.kicker,#practice>.timer,#practice>p,#practice>button,#scorePanel,#answerKey{display:none!important}main{max-width:none;margin:0;padding:0}#lesson{display:block!important}#practice{display:block!important;border:0;box-shadow:none;padding:0;margin:0}#practice .question{break-inside:avoid;border:1px solid #aaa}#printHeader{display:block!important}#practiceQuestions label{display:block}button{display:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="school">Modern English School Cairo</div>
+ <div class="motto">CARE · CHALLENGE · INSPIRE</div>
+ <div class="brand">RAVI RAJU</div>
+ <div class="role">Computer Science Educator</div>
+ <div class="lab">Ravi Raju’s Programming Lab</div>
+ <div class="department">COMPUTER SCIENCE DEPARTMENT</div>
+ <div class="banner">
+  <div><div class="kicker" style="color:#9deaff">Cambridge IGCSE Computer Science 0984 · Topic 5</div>
+   <h1>5.2 Digital Currency</h1>
+   <p>Understanding electronic money and how blockchain records transactions</p>
+   <p style="margin-top:9px"><span class="tag">T05-P02</span><span class="tag">50-minute lesson</span><span class="tag">2026–2028 syllabus</span></p>
+  </div>
+  <svg viewBox="0 0 240 190" role="img" aria-label="Digital coin and connected blockchain blocks">
+   <g fill="none" stroke="#77dcf1" stroke-width="3"><path d="M30 100 L85 55 L145 95 L205 45 M85 55 L90 145 L145 95 L175 150 L205 45"/><path d="M30 100L90 145L175 150"/></g>
+   <g fill="#173f65" stroke="#f4ca62" stroke-width="3"><rect x="12" y="82" width="36" height="36" rx="7"/><rect x="67" y="37" width="36" height="36" rx="7"/><rect x="127" y="77" width="36" height="36" rx="7"/><rect x="187" y="27" width="36" height="36" rx="7"/><rect x="72" y="127" width="36" height="36" rx="7"/><rect x="157" y="132" width="36" height="36" rx="7"/></g>
+   <circle cx="145" cy="95" r="25" fill="#f4ca62" stroke="#fff" stroke-width="3"/><text x="145" y="104" text-anchor="middle" font-size="28" font-weight="bold" fill="#123b5c">₿</text>
+  </svg>
+ </div>
+</header>
+<nav><a href="#objectives">Objectives</a><a href="#recall">Recall</a><a href="#teacher">Teacher session</a><a href="#explore">Explore</a><a href="#practice">Practice</a><a href="#outcome">Final activity</a></nav>
+<main>
+<section class="card" id="gate">
+ <div class="kicker">Student entry</div><h2>Welcome to the lesson</h2>
+ <p>Enter your full name before beginning. Your name will appear on your practice report.</p>
+ <input id="studentName" type="text" maxlength="80" placeholder="Enter your full name" autocomplete="name">
+ <button onclick="startLesson()">Start lesson</button><p id="gateMsg" class="feedback" aria-live="polite"></p>
+</section>
+<div id="lesson" class="hidden">
+<section class="card" id="objectives">
+ <div class="kicker">What you will learn</div><h2>Cambridge syllabus objectives</h2>
+ <p>By the end of this lesson, you should be able to:</p>
+ <ol><li>Understand the concept of a digital currency and how digital currencies are used.</li><li>Understand the process of blockchain and how it is used to track digital currency transactions.</li></ol>
+ <div class="note"><b>Cambridge syllabus note:</b> A digital currency is one that only exists electronically. Blockchain, in its basic form, is a digital ledger: a time-stamped series of records that cannot be altered.</div>
+ <p class="small">Coverage is deliberately focused on these two syllabus objectives. Examples and activities below support understanding; they do not add extra examinable objectives.</p>
+</section>
+
+<section class="card" id="recall">
+ <span class="timer">5 minutes</span><div class="kicker">Part 1 · Recall</div><h2>Quick starter: Connect to the previous lesson</h2>
+ <p>Choose the best answer for each question. This is a warm-up, not part of your formal practice score.</p>
+ <div class="question"><p>1. What does HTTPS help a browser do?</p><label><input type="radio" name="r1" value="a"> Display images faster</label><label><input type="radio" name="r1" value="b"> Communicate securely with a website</label><label><input type="radio" name="r1" value="c"> Create a domain name</label></div>
+ <div class="question"><p>2. What is the main role of DNS?</p><label><input type="radio" name="r2" value="a"> Translate a domain name into an IP address</label><label><input type="radio" name="r2" value="b"> Store website pictures</label><label><input type="radio" name="r2" value="c"> Encrypt every file on a computer</label></div>
+ <div class="question"><p>3. Which item can a website store in a cookie?</p><label><input type="radio" name="r3" value="a"> A computer's processor</label><label><input type="radio" name="r3" value="b"> A user's preference or session identifier</label><label><input type="radio" name="r3" value="c"> The website's physical server</label></div>
+ <button class="secondary" onclick="markRecall()">Check recall</button><p id="recallResult" class="feedback" aria-live="polite"></p>
+</section>
+
+<section class="card" id="teacher">
+ <span class="timer">10 minutes</span><div class="kicker">Part 2 · Teacher session</div><h2>1. What is digital currency?</h2>
+ <p>A <b>digital currency</b> is a form of currency that exists only in electronic form. It is represented, stored and transferred using digital systems rather than as physical notes or coins.</p>
+ <div class="grid">
+  <div class="tile"><b>Physical cash</b><p>Banknotes and coins that can be physically held and exchanged.</p></div>
+  <div class="tile"><b>Digital currency</b><p>Electronic value that is accessed and transferred using digital devices and systems.</p></div>
+ </div>
+ <h3>How are digital currencies used?</h3>
+ <ul><li>Making electronic payments for goods and services.</li><li>Sending value to another person or organisation electronically.</li><li>Paying online or using a digital payment application.</li><li>Holding and managing an electronic balance through a digital service.</li></ul>
+ <p><b>Examples to discuss:</b> an electronic balance in a bank account, a digital payment balance, and a cryptocurrency such as Bitcoin. These examples are not all identical: a bank balance is recorded by a financial institution, while cryptocurrencies use cryptographic systems and may use a blockchain.</p>
+ <div class="note"><b>Important distinction:</b> Not every digital payment or electronic bank balance uses blockchain. Blockchain is one way of recording and tracking certain digital currency transactions.</div>
+ <h2 style="margin-top:25px">2. What is blockchain?</h2>
+ <p>A <b>blockchain</b> is a type of digital ledger. A ledger is a record of transactions. In a blockchain, records are grouped into blocks. Each block is linked to the previous block, forming a chain.</p>
+ <div class="grid">
+  <div class="tile"><b>Digital ledger</b><p>An electronic record used to keep track of transactions.</p></div>
+  <div class="tile"><b>Time-stamped record</b><p>A record associated with the date and time it was added.</p></div>
+  <div class="tile"><b>Linked blocks</b><p>Each block is connected to the preceding block, helping preserve the sequence of records.</p></div>
+  <div class="tile"><b>Cannot be altered</b><p>In the syllabus description, the blockchain is a series of records that cannot be altered. Changes to an established record are designed to be prevented or made evident.</p></div>
+ </div>
+ <h3>How a blockchain transaction is recorded (simplified)</h3>
+ <div class="flow">
+  <div class="step"><strong>1 · Initiate</strong>A sender requests a digital currency transfer.</div>
+  <div class="step"><strong>2 · Broadcast</strong>The transaction is shared with the blockchain network.</div>
+  <div class="step"><strong>3 · Validate</strong>Network participants check that the transaction follows the rules.</div>
+  <div class="step"><strong>4 · Group</strong>Valid transactions are collected into a block.</div>
+  <div class="step"><strong>5 · Link</strong>The new block is linked to the previous block.</div>
+  <div class="step"><strong>6 · Record</strong>The ledger is updated so the transaction can be tracked.</div>
+ </div>
+ <p class="small">This is a simplified teaching model. The exact validation and agreement method depends on the particular blockchain system.</p>
+ <h3>Why is blockchain useful for tracking transactions?</h3>
+ <ul><li>Transactions are recorded in an ordered, time-stamped sequence.</li><li>Blocks are linked, making the history of transactions traceable.</li><li>The ledger is designed to resist alteration, helping participants check the transaction history.</li><li>It provides a record that can be consulted to follow the movement of digital currency.</li></ul>
+ <div class="good"><b>Exam-ready explanation:</b> Blockchain is a digital ledger made up of linked blocks of transaction records. The records are time-stamped and, in its basic form, cannot be altered. This allows digital currency transactions to be tracked in sequence.</div>
+</section>
+
+<section class="card" id="explore">
+ <span class="timer">10 minutes</span><div class="kicker">Part 3 · Interactive exploration</div><h2>Explore a sample blockchain ledger</h2>
+ <p>Imagine that a small learning network records three digital currency transfers. Select each block to inspect its record and see how the transaction history builds up.</p>
+ <div class="flow" id="blockButtons">
+  <button class="secondary" onclick="showBlock(0)">Block 1</button><button class="secondary" onclick="showBlock(1)">Block 2</button><button class="secondary" onclick="showBlock(2)">Block 3</button>
+ </div>
+ <div class="tile" id="blockDetail" aria-live="polite"><b>Select Block 1, 2 or 3.</b><p>The record will appear here.</p></div>
+ <h3>Activity: Is it a blockchain feature?</h3>
+ <p>Choose whether each statement describes the simplified blockchain model taught in this lesson.</p>
+ <div class="question"><p>1. Records are arranged with time information.</p><label><input type="radio" name="b1" value="yes"> Yes</label><label><input type="radio" name="b1" value="no"> No</label></div>
+ <div class="question"><p>2. A block is linked to the previous block.</p><label><input type="radio" name="b2" value="yes"> Yes</label><label><input type="radio" name="b2" value="no"> No</label></div>
+ <div class="question"><p>3. An established record can be freely edited without affecting the ledger.</p><label><input type="radio" name="b3" value="yes"> Yes</label><label><input type="radio" name="b3" value="no"> No</label></div>
+ <button class="secondary" onclick="checkExplore()">Check exploration</button><p id="exploreResult" class="feedback" aria-live="polite"></p>
+</section>
+
+<section class="card" id="practice">
+ <div id="printHeader" class="hidden"><h1>Modern English School Cairo</h1><h2>Ravi Raju’s Programming Lab</h2><h2>Cambridge IGCSE Computer Science 0984 · Topic 5.2 Digital Currency</h2><p><b>Student:</b> <span id="printStudent"></span> &nbsp; <b>Score:</b> <span id="printScore"></span></p><hr></div>
+ <span class="timer">15 minutes</span><div class="kicker">Part 4 · Formal captured assessment</div><h2>Practice session · 30 marks</h2>
+ <p>Answer all 15 questions. Each question is worth 2 marks. This is the only formal assessment captured in your report.</p>
+ <div id="practiceQuestions"></div>
+ <button onclick="submitPractice()">Submit practice</button>
+ <div id="scorePanel" class="hidden" aria-live="polite"></div>
+ <div id="answerKey" class="hidden"></div>
+</section>
+
+<section class="card hidden" id="outcome">
+ <div class="kicker">Part 5 · Final 10 minutes</div><h2>Choose your next learning step</h2>
+ <div id="lockedOutcome"></div>
+ <div id="gameOutcome" class="hidden">
+  <h3>Bonus Game: LAN Structure Puzzle</h3>
+  <p>Well done! Your practice score is at least 70%. You have unlocked a 10-minute enrichment game.</p>
+  <p>In this puzzle, identify and place the devices that make up a Local Area Network (LAN). This reinforces the idea that digital transactions take place using connected computing devices. Remember: a LAN is a type of network; it is not the same thing as a blockchain.</p>
+  <div class="game-fallback">
+   <b>If the game appears below, play it here.</b><br>
+   <span class="game-note">The game is hosted by Planeta 42 and requires an Internet connection. If it does not load inside this page, use the button to open it in a new tab.</span>
+   <p><a href="https://planeta42.com/it/lanpuzzle/" target="_blank" rel="noopener noreferrer"><button type="button" class="gold">OPEN LAN STRUCTURE PUZZLE IN A NEW TAB ↗</button></a></p>
+  </div>
+  <iframe class="game-frame" src="https://planeta42.com/it/lanpuzzle/" title="Planeta 42 LAN Structure Puzzle" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen"></iframe>
+  <p class="game-note">Teacher note: This is an optional networking enrichment activity, not part of the digital currency assessment and not included in the practice report.</p>
+ </div>
+ <div id="remedial" class="hidden">
+  <h3>Let's strengthen your understanding</h3><p>Your practice score is below 70%. Review the explanations in the Teacher Session, then complete these three short questions.</p>
+  <div class="question"><p>1. What is a digital currency?</p><label><input type="radio" name="m1" value="a"> Currency that exists only electronically</label><label><input type="radio" name="m1" value="b"> Any paper banknote</label></div>
+  <div class="question"><p>2. What is a blockchain in its basic form?</p><label><input type="radio" name="m2" value="a"> A digital ledger of linked, time-stamped records</label><label><input type="radio" name="m2" value="b"> A computer screen</label></div>
+  <div class="question"><p>3. Why link blocks?</p><label><input type="radio" name="m3" value="a"> To create an ordered transaction history</label><label><input type="radio" name="m3" value="b"> To increase screen brightness</label></div>
+  <button class="secondary" onclick="checkRemedial()">Check remedial practice</button><p id="remedialResult" class="feedback"></p>
+ </div>
+</section>
+</div>
+</main>
+<footer>Modern English School Cairo · Care · Challenge · Inspire<br>Ravi Raju’s Programming Lab · Computer Science Department</footer>
+<script>
+const questions=[
+["A digital currency is a currency that:",["Exists only electronically","Must be printed as banknotes","Can only be exchanged in person"],0,"A digital currency exists only electronically."],
+["Which is an example of using digital currency or electronic value? ",["Sending a payment electronically","Writing a cheque with no electronic processing","Handing over a paper banknote"],0,"Digital systems can be used to send value electronically."],
+["Which statement about digital currency is correct?",["It is represented and transferred electronically","It must have a physical coin for every unit","It can never be used online"],0,"Digital currency exists electronically."],
+["What is a ledger?",["A record of transactions","A type of computer monitor","A password list only"],0,"A ledger is a record of transactions."],
+["In a blockchain, transaction records are grouped into:",["Blocks","Folders on a desktop","Web pages"],0,"Transactions are grouped into blocks."],
+["What does the word blockchain describe?",["Blocks of records linked in a chain","A chain of physical coins","A single unconnected file"],0,"Blocks are linked together to form a chain."],
+["What is meant by a time-stamped record?",["A record associated with a date and time","A record with no date","A record that is automatically deleted"],0,"A time stamp associates a record with a time."],
+["What is the main purpose of recording transactions on a blockchain?",["To track the transaction history","To make a website load faster","To replace every computer network"],0,"The ledger provides a record that can be followed."],
+["Which sequence best represents a simplified blockchain transaction process?",["Initiate, broadcast, validate, group, link and record","Print, post, scan and shred","Download, format, delete and restart"],0,"This is the simplified sequence used in the lesson."],
+["Why are blocks linked to previous blocks?",["To maintain a connected and ordered record history","To make each block independent","To remove time information"],0,"Linking blocks preserves the sequence of records."],
+["Which statement is true about blockchain in its basic syllabus description?",["It is a digital ledger of time-stamped records that cannot be altered","It is a physical book stored in a bank","It is a website address"],0,"This matches the Cambridge syllabus note."],
+["Which statement is most accurate?",["Some digital currencies use blockchain; not every digital payment does","Every bank card payment must use blockchain","Blockchain is the same thing as a web browser"],0,"Blockchain is one method used by some digital currency systems."],
+["A valid transaction is grouped with other transactions into a:",["Block","Cookie","URL"],0,"Valid transactions can be collected into a block."],
+["What is one benefit of a time-stamped transaction record?",["It helps establish the order of transactions","It hides all transaction history","It turns digital currency into cash"],0,"Time information helps place records in sequence."],
+["Which answer best explains how blockchain helps track digital currency?",["It stores linked, time-stamped transaction records in a ledger","It stores users' photographs","It converts every transaction into a printed receipt"],0,"Linked records provide a trackable transaction history."]
+];
+const blockData=[
+{time:"10:02",from:"Mina",to:"Omar",amount:"12 units",detail:"The first sample transfer is recorded in Block 1. It begins the example ledger."},
+{time:"10:05",from:"Omar",to:"Leila",amount:"4 units",detail:"The second transfer is recorded after Block 1. It extends the transaction history."},
+{time:"10:09",from:"Leila",to:"Mina",amount:"2 units",detail:"The third transfer is recorded after Block 2. The sequence now shows three transfers."}
+];
+let student="",submitted=false,practiceScore=0;
+function startLesson(){const n=document.getElementById("studentName").value.trim();if(n.length<3){document.getElementById("gateMsg").textContent="Please enter your full name before starting.";return;}student=n;document.getElementById("lesson").classList.remove("hidden");document.getElementById("gate").classList.add("hidden");document.getElementById("objectives").scrollIntoView({behavior:"smooth"});}
+function markRecall(){let score=0;["b","a","b"].forEach((v,i)=>{if(document.querySelector('input[name="r'+(i+1)+'"]:checked')?.value===v)score++;});document.getElementById("recallResult").textContent="You scored "+score+"/3. Review the answers and continue."; }
+function showBlock(i){const b=blockData[i];document.getElementById("blockDetail").innerHTML="<b>Block "+(i+1)+" · "+b.time+"</b><p><b>From:</b> "+b.from+" &nbsp; <b>To:</b> "+b.to+" &nbsp; <b>Amount:</b> "+b.amount+"</p><p>"+b.detail+"</p><p><b>Ledger position:</b> "+(i===0?"First record": "Linked after Block "+i)+"</p>";}
+function checkExplore(){let s=0;["yes","yes","no"].forEach((v,i)=>{if(document.querySelector('input[name="b'+(i+1)+'"]:checked')?.value===v)s++;});document.getElementById("exploreResult").textContent="You identified "+s+"/3 correctly. Remember: time-stamped records are linked, and the basic model says they cannot be altered."; }
+function renderQuestions(){const host=document.getElementById("practiceQuestions");host.innerHTML=questions.map((q,i)=>'<div class="question"><p>'+(i+1)+'. '+q[0]+'</p>'+q[1].map((a,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"> '+String.fromCharCode(65+j)+'. '+a+'</label>').join("")+'</div>').join("");}
+function submitPractice(){if(submitted){document.getElementById("scorePanel").scrollIntoView({behavior:"smooth"});return;}let unanswered=questions.findIndex((q,i)=>!document.querySelector('input[name="q'+i+'"]:checked'));if(unanswered!==-1){alert("Please answer all questions. Question "+(unanswered+1)+" is unanswered.");document.querySelector('input[name="q'+unanswered+'"]').closest(".question").scrollIntoView({behavior:"smooth",block:"center"});return;}practiceScore=0;let details=[];questions.forEach((q,i)=>{const chosen=Number(document.querySelector('input[name="q'+i+'"]:checked').value);const ok=chosen===q[2];if(ok)practiceScore+=2;details.push({question:q[0],selected:q[1][chosen],correct:q[1][q[2]],ok,explain:q[3]});});submitted=true;const pct=practiceScore/30*100;document.getElementById("printStudent").textContent=student;document.getElementById("printScore").textContent=practiceScore+"/30 ("+pct.toFixed(1)+"%)";document.getElementById("printHeader").classList.remove("hidden");const panel=document.getElementById("scorePanel");panel.classList.remove("hidden");panel.innerHTML='<h3>Practice result: '+practiceScore+'/30 ('+pct.toFixed(1)+'%)</h3><p>'+(pct>=70?'You have reached the 70% target. The game is unlocked.':'You are below 70%. Complete the remedial activity to strengthen your understanding.')+'</p><button onclick="printPractice()">Print / Save Practice PDF</button><div class="small">Only this formal practice assessment is included in the PDF.</div>';const key=document.getElementById("answerKey");key.classList.remove("hidden");key.innerHTML="<h3>Answer review</h3>"+details.map((d,i)=>'<p><b>'+(i+1)+'. '+(d.ok?'Correct':'Review')+'</b> — Your answer: '+d.selected+'<br>Correct answer: '+d.correct+'<br><span class="small">'+d.explain+'</span></p>').join("");const out=document.getElementById("outcome");out.classList.remove("hidden");const lock=document.getElementById("lockedOutcome");if(pct>=70){lock.innerHTML='<div class="good"><b>Well done, '+escapeText(student)+'!</b><br>Your score is '+practiceScore+'/30 ('+pct.toFixed(1)+'%). Your 10-minute LAN Structure Puzzle enrichment game is unlocked.</div><p><button class="gold" onclick="openGame()">OPEN LAN STRUCTURE PUZZLE</button></p>';document.getElementById("gameOutcome").classList.remove("hidden");}else{lock.innerHTML='<div class="note"><b>Keep practising, '+escapeText(student)+'.</b><br>Your score is '+practiceScore+'/30 ('+pct.toFixed(1)+'%). The game unlocks at 70%; please complete the remedial practice below.</div>';document.getElementById("remedial").classList.remove("hidden");}panel.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(()=>out.scrollIntoView({behavior:"smooth",block:"start"}),350);}
+function openGame(){const panel=document.getElementById("gameOutcome");panel.classList.remove("hidden");panel.scrollIntoView({behavior:"smooth",block:"start"});}
+function printPractice(){if(!submitted)return;const original=document.title;document.title="Practice Report - "+student+" - T05-P02";window.print();document.title=original;}
+function escapeText(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function checkRemedial(){let s=0;["a","a","a"].forEach((v,i)=>{if(document.querySelector('input[name="m'+(i+1)+'"]:checked')?.value===v)s++;});document.getElementById("remedialResult").textContent="You scored "+s+"/3. "+(s===3?"Great work. Revisit the lesson notes once more to consolidate.":"Please revisit the Teacher Session and try again.");}
+renderQuestions();
+</script>
+</body>
+</html>
